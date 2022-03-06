@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
     name='EarReaderSSD',
     version='1.0',
-    packages=['EarReaderSSD'],
+    packages=[],
     url='',
     license='',
     author='jacobhume',
