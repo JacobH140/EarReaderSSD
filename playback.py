@@ -18,7 +18,7 @@ def scale_stream_tempo(note_stream, tempo=0.5):
 
 def stream_to_midi_file(note_stream):
     """writes music21 stream to temp midi file to be 'picked up' by other libs; returns the filepath"""
-    fp = note_stream.write('midi', fp='/Users/jacobhume/PycharmProjects/EarReaderSSD/midifile.mid')
+    fp = note_stream.write('midi', fp='midifile.mid')
     return fp
 
 
