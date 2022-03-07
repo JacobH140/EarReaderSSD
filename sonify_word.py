@@ -4,7 +4,7 @@ from music21 import chord, roman, key, stream, interval
 import playback
 
 
-def sonify_word(harmonic_function, mode, word):  # harmonic function is an abstract roman numeral
+def sonify_word(harmonic_function, mode, word, audio_on=True):  # harmonic function is an abstract roman numeral
     segments = segmentize(word)
     c = make_chord(harmonic_function, mode)
     c = add_extensions(c, mode, word)
@@ -19,7 +19,7 @@ def sonify_word(harmonic_function, mode, word):  # harmonic function is an abstr
             pan_division_width = 1.0 / len(segment)
         for index, character in enumerate(segment):
             pan_ratio = index*pan_division_width
-            character_stream = sonify_character.sonify_character(character, c, pan_ratio, playback.init())
+            character_stream = sonify_character.sonify_character(character, c, pan_ratio, audio_on=audio_on)
             output.append(character_stream)
     return output
 

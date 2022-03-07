@@ -5,7 +5,7 @@ from music21 import stream, chord
 import playback
 
 
-def sonify_character(character, c, pan_ratio, num_timesteps=-1, num_freq_bands=-1):
+def sonify_character(character, c, pan_ratio, num_timesteps=-1, num_freq_bands=-1, audio_on=True):
     """Given a character and chord, RETURNS: a music21 stream object of music21
     chords corresponding to the character's sonification. current implementation (pyfiglet)
     doesn't use num_timesteps or num_freq_bands, but later versions might use different rendering
@@ -26,10 +26,11 @@ def sonify_character(character, c, pan_ratio, num_timesteps=-1, num_freq_bands=-
 
     # output.show()
 
-    s = playback.init()
-    adjusted_output = playback.scale_stream_tempo(output, 0.25)
-    fp = playback.stream_to_midi_file(adjusted_output)
-    playback.synthesize_midi_test_1(s, fp, pan_ratio)
+    if audio_on:
+        s = playback.init()
+        adjusted_output = playback.scale_stream_tempo(output, 0.25)
+        fp = playback.stream_to_midi_file(adjusted_output)
+        playback.synthesize_midi_test_1(s, fp, pan_ratio)
 
     return output
 

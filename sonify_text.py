@@ -8,15 +8,15 @@ import sonify_sentence
 the mode changes wouldn't be jarring in the latter either, provided that the sentiment transitions between sentences weren't *themselves* jarring — in 
 which case the key changes should(!) be jarring! So, training will occur once, but classification will occur fresh each sentence"""
 
-def sonify_text(text, tonal_center, plot=True):
+def sonify_text(text, tonal_center, plot=True, audio_on=True):
 
     output = stream.Stream()
 
     classifier = train_classifier() # time consuming; find out how to load trained model from local directory later (should not be too bad)
     sentences = sent_tokenize(text)
     for sentence in sentences:
-        mode = classify_mode(sentence, classifier,tonal_center)
-        output.append(sonify_sentence.sonify_sentence(sentence, mode))
+        mode = classify_mode(sentence, classifier, tonal_center)
+        output.append(sonify_sentence.sonify_sentence(sentence, mode, audio_on))
 
     if plot:
         graph.plot.HorizontalBarPitchClassOffset(output).run()
@@ -73,5 +73,5 @@ if __name__ == "__main__":
     # print(classify_sentence_sentiment("this made my day!"))
     # train_classifier()
     # classify_mode("this made my day!")
-    sonify_text("Hill", 'C')
+    sonify_text("Hill", 'C', plot=True, audio_on=False)
 

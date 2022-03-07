@@ -4,7 +4,7 @@ import syntax_tree_v2
 import sonify_word
 
 
-def sonify_sentence(sentence, mode):
+def sonify_sentence(sentence, mode, audio_on=True):
     """TODO: improve this docstring
     traverses the tree to assign chords to words based on x-bar theory then adds back in the material that was removed during the
     tree-generation process, deciding what chords go with what additional material etc"""
@@ -28,7 +28,7 @@ def sonify_sentence(sentence, mode):
     handle_additional_material(additional_material, chordal_parse)
     print(chordal_parse)
     for h, m, w in chordal_parse:
-        output.append(sonify_word.sonify_word(h, m, w.strip()))
+        output.append(sonify_word.sonify_word(h, m, w.strip(), audio_on))
     return output
 
 
