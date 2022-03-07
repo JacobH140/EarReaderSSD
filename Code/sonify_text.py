@@ -1,4 +1,4 @@
-from transformers import pipeline, AutoTokenizer, AutoModelForSequenceClassification
+from transformers import pipeline
 from music21 import key, stream, graph
 from nltk import sent_tokenize
 import sonify_sentence

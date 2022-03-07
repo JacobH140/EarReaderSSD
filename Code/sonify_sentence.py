@@ -1,6 +1,5 @@
 from music21 import key, roman, stream
 import lark
-from lark import Lark
 import syntax_tree_v2
 import sonify_word
 

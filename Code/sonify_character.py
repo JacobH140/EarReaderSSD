@@ -2,7 +2,7 @@ import pandas as pd
 import pyfiglet
 from music21 import stream, chord
 
-import playback
+from EarReaderSSD.Code import playback
 
 
 def sonify_character(character, c, pan_ratio, num_timesteps=-1, num_freq_bands=-1):

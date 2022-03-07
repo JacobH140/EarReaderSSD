@@ -1,7 +1,7 @@
 from nltk import tokenize
 import sonify_character
 from music21 import chord, roman, key, stream, interval
-import playback
+from EarReaderSSD.Code import playback
 
 
 def sonify_word(harmonic_function, mode, word):  # harmonic function is an abstract roman numeral
